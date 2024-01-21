@@ -16,9 +16,16 @@ body{
 #tbc-header{
     width:100%;
     background-color: #1a1e1f;
-    padding:34px 0;
+    padding:20px 0;
     display: flex;
     justify-content: center;
+    position:fixed;
+    transition: background-color 0.4s ease-in-out;
+}
+#tbc-header.scrolled {
+    background-color: #1a1e1f;
+    opacity:0.9;
+    transition: background-color 0.4s ease-in-out; 
 }
 
 .header-container{
@@ -28,9 +35,9 @@ body{
     justify-content:space-between;
 }
 
-.tbc-logo{
-    display: flex;
-    align-items: center;
+.tbc-logo img{
+   height:40px;
+   cursor: pointer;
 }
 .tbc-logo p{
     color:#f4f4f4;
@@ -47,6 +54,7 @@ body{
     font-size:14px;
     padding:0 15px;
     cursor: pointer;
+    transition: color 0.4s ease-in-out;
 }
 
 .header-nav-bar ul li:nth-child(3) a {
@@ -56,6 +64,7 @@ body{
 
 .header-nav-bar a:hover{
     color:#0e8cbf;
+    transition: color 0.4s ease-in-out;
 }
 
 /* education section style */
@@ -106,16 +115,18 @@ body{
     width:67%;
     margin: 0 auto 40px;
 }
-.banner-description-more{
+.read-more-link{
     width:67%;
     display: flex;
     align-items: flex-start;
     margin:auto;
 }
-.banner-description-more a{
+.read-more-link a{
     color:#0e8cbf;
     cursor: pointer;
+    transition: color 0.4s ease-in-out;
 }
-.banner-description-more a:hover{
+.read-more-link a:hover{
     color:#7e7e7e;
+    transition: color 0.4s ease-in-out;
 }
