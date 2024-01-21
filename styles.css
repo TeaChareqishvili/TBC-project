@@ -141,14 +141,34 @@ body{
     justify-content: center;
 }
 
-.training-course-container{
+#training-course-container{
+    width:68%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.training-course-data{
     border:solid 1px #505050;
     border-radius:4px;
     display: flex;
-    align-items: center;
+    align-items:flex-start;
     flex-direction: column;
     max-width:300px;
     width:100%;
+    margin:10px 13px;
+}
+
+.training-title {
+    color:#f4f4f4;
+    margin:25px 0 25px 14px;
+    font-size:18px;
+}
+.training-registration{
+    color:#f4f4f4;
+    margin:25px 0 40px 14px;
+    font-size:14px;
 }
 
 .training-image{
@@ -158,4 +178,21 @@ body{
 
 .training-image img{
     width:100%;
+    border-radius: 4px 4px 0 0;
+}
+
+.training-course-details{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin:55px 0 30px 5px;
+}
+
+.course-details{
+    color:#00AEEF;
+    font-size:16px;
+    cursor: pointer;
+}
+.course-details:hover{
+    color:#0080b0;
 }
