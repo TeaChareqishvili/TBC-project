@@ -196,3 +196,86 @@ body{
 .course-details:hover{
     color:#0080b0;
 }
+
+/* Footer style */
+
+#tbc-footer{
+    width:100%;
+    background-color: #1a1e1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:35px 0 30px;
+}
+
+.footer-container{
+    width:67%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rights-and-rules{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.rights-and-rules img{
+    max-width:106px;
+    width:100%;
+    margin-bottom:25px;
+}
+
+.rights{
+    font-size:14px;
+    color: #f4f4f4;
+    margin-bottom:10px;
+}
+
+.rules{
+    font-size:14px;
+    color:#FFFFFF;
+    margin-bottom:10px;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+.rules:hover{
+    color:#4a4d4d;
+    transition: color 0.4s ease-in-out;
+}
+
+.tbc-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.soc-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.soc-icons img{
+    width:39px;
+    height:39px;
+    margin:0 0 30px 7px;
+    cursor: pointer;
+}
+.contact-btn{
+    max-width:170px;
+    width:100%;
+    background-color: #00AEF3;
+    border:none;
+    padding:7px 25px;
+    border-radius:5px;
+    color:#FFFFFF;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.contact-btn:hover{
+    background-color: #d5d5d5;
+    color:#353131;
+}
