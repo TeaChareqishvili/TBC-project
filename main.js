@@ -114,7 +114,7 @@ const question = [
       {
         about: "კურსზე რეგისტრაციისთვის უნდა გაიარო რამდენიმე ეტაპი:",
         answer:
-          "I ეტაპი - პირველ ეტაპზე საჭიროა, შეავსო სასურველი კურსისთვის განკუთვნილი სარეგისტრაციო ფორმა, რომელიც განთავსებულია კურსის შიდა გვერდზე. კურსზე რეგისტრაციის დასრულების შემდეგ დაიწყება შემოსული განცხადებების გადარჩევა. II ეტაპი - შერჩევის მეორე ეტაპი კურსების მიხედვით განსხვავებულია, ზოგიერთი კურსისთვის მოიცავს პრე-ტესტს, ზოგიერთ კურსზე კი უნარების ტესტს, სადაც მინიმალური ზღვარის გადალახვის შემთხვევაში გადახვალ შერჩევის შემდეგ ეტაპზე. III ეტაპი - მესამე ეტაპი კურსების მიხედვით განსხვავდება: Advance კურსებზე, სადაც მოითხოვება გარკვეული ტექნიკური ცოდნა, მონაწილეებმა უნდა დაწერონ ტექნიკური ტესტი ცოდნის დონის შესამოწმებლად, ხოლო კურსებზე, სადაც რაიმე ტიპის წინასწარი ცოდნა მოთხოვნილი არ არის უნდა შეასრულოთ ტექნიკური დავალება, რაც თქვენი კვლევისა და თვითსწავლის უნარს ამოწმებს. IV ეტაპი - შერჩევის ბოლო მეოთხე ეტაპი მოიცავს გასაუბრებას შესარჩევ კომისიასთან. გასაუბრების წარმატებით გავლის შემთხვევაში ჩაირიცხებით კურსზე და გაფორმდება შესაბამისი ხელშეკრულება.",
+          "I ეტაპი - პირველ ეტაპზე საჭიროა, შეავსო სასურველი კურსისთვის განკუთვნილი სარეგისტრაციო ფორმა, რომელიც განთავსებულია კურსის შიდა გვერდზე. კურსზე რეგისტრაციის დასრულების შემდეგ დაიწყება შემოსული განცხადებების გადარჩევა. <br> II ეტაპი - შერჩევის მეორე ეტაპი კურსების მიხედვით განსხვავებულია, ზოგიერთი კურსისთვის მოიცავს პრე-ტესტს, ზოგიერთ კურსზე კი უნარების ტესტს, სადაც მინიმალური ზღვარის გადალახვის შემთხვევაში გადახვალ შერჩევის შემდეგ ეტაპზე. <br> III ეტაპი - მესამე ეტაპი კურსების მიხედვით განსხვავდება: Advance კურსებზე, სადაც მოითხოვება გარკვეული ტექნიკური ცოდნა, მონაწილეებმა უნდა დაწერონ ტექნიკური ტესტი ცოდნის დონის შესამოწმებლად, ხოლო კურსებზე, სადაც რაიმე ტიპის წინასწარი ცოდნა მოთხოვნილი არ არის უნდა შეასრულოთ ტექნიკური დავალება, რაც თქვენი კვლევისა და თვითსწავლის უნარს ამოწმებს. IV ეტაპი - შერჩევის ბოლო მეოთხე ეტაპი მოიცავს გასაუბრებას შესარჩევ კომისიასთან. გასაუბრების წარმატებით გავლის შემთხვევაში ჩაირიცხებით კურსზე და გაფორმდება შესაბამისი ხელშეკრულება.",
         PS: "* სანამ კურსზე დარეგისტრირდები მნიშვნელოვანია, ყურადღებით წაიკითხო კურსის აღწერა, ნახო რას ისწავლი კურსის განმავლობაში და გაიგო გააჩნია თუ არა კურსს დასწრების წინაპირობა.",
       },
     ],
@@ -138,26 +138,29 @@ const question = [
 
 const frequentQuestionSection = document.getElementById("questions");
 
+
+
 question.map((info) => {
   if (info.hasOwnProperty("answers")) {
     frequentQuestionSection.innerHTML += `
      
         <div class='question'>
           <p>${info.question}</p>
-         ${info.arrow}
+          <div class="arrow"> ${info.arrow}</div>
+        
         </div>
-        <div class="border"></div>
-        <div class="answer hide">
+        <div class=" answers hide-answer">
         ${info.answers
           .map(
             (answerInfo) => `
-        <p>${answerInfo.about}></p>
-        <p>${answerInfo.answer}</p>
-        <p>${answerInfo.PS}</p>
+        <p class="about">${answerInfo.about}</p>
+        <p class="answer">${answerInfo.answer}</p>
+        <p class="ps">${answerInfo.PS}</p>
       `
           )
           .join("")}
         </div>
+        <div class="border"></div>
        
       `;
   } else {
@@ -165,14 +168,47 @@ question.map((info) => {
    
         <div class="question">
           <p>${info.question}</p>
-          ${info.arrow}
+          <div class="arrow"> ${info.arrow}</div>
+        </div>
+        <div class=" answers hide-answer">
+           <p class="answer">${info.answer}</p>
         </div>
         <div class="border"></div>
-        <div class="answer hide">
-           <p>${info.answer}</p>
-        </div>
    
        
       `;
   }
 });
+
+
+
+// Add event listeners to all arrow icons
+const arrowIcons = document.querySelectorAll('.arrow');
+arrowIcons.forEach((arrowIcon) => {
+  arrowIcon.addEventListener('click', () => {
+    // Find the closest parent div with class 'question'
+    const questionDiv = arrowIcon.closest('.question');
+
+    // Find the corresponding answers div
+    const answersDiv = questionDiv.nextElementSibling;
+
+    // Close all other answers
+    const allAnswerDivs = document.querySelectorAll('.answers');
+    allAnswerDivs.forEach((otherAnswersDiv) => {
+      if (otherAnswersDiv !== answersDiv) {
+        otherAnswersDiv.classList.add('hide-answer');
+        otherAnswersDiv.classList.remove('show-answer');
+      }
+    });
+
+    // Toggle classes between hide-answer and show-answer for the clicked answer
+    answersDiv.classList.toggle("hide-answer");
+    answersDiv.classList.toggle("show-answer");
+  });
+});
+
+
+
+
+
+  

@@ -228,8 +228,40 @@ body{
     cursor: pointer;
 }
 
-.answer{
+.hide-answer{
     display: none;
+}
+
+.show-answer {
+    display: block;
+  }
+
+
+.about{
+    font-size:14px;
+    color: #c8c8c8;
+    margin-bottom:30px;
+}
+
+.answer{
+    font-size:14px;
+    color: #c8c8c8;
+    line-height: 1.8em;
+    letter-spacing: 1.1px;
+   
+}
+
+
+.answer br {
+    margin-bottom: 10px; 
+    display: block; 
+    content: ""; 
+}
+
+.ps{
+    margin:30px 0 35px;
+    font-size:14px;
+    color: #c8c8c8;
 }
 
 .questions{
@@ -247,12 +279,7 @@ body{
     color:#FFFFFF;
 }
 
-/* .question img{
-    width:20px;
-    height:20px;
-    color:#f4f4f4;
-    cursor: pointer;
-} */
+
 
 .border{
     width:100%;
