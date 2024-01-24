@@ -236,6 +236,11 @@ body{
     display: block;
   }
 
+  .arrow-rotate{
+    transform: rotate(180deg);
+  }
+ 
+
 
 .about{
     font-size:14px;

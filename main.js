@@ -181,18 +181,22 @@ question.map((info) => {
 });
 
 
-
-// Add event listeners to all arrow icons
 const arrowIcons = document.querySelectorAll('.arrow');
+
 arrowIcons.forEach((arrowIcon) => {
   arrowIcon.addEventListener('click', () => {
-    // Find the closest parent div with class 'question'
     const questionDiv = arrowIcon.closest('.question');
-
-    // Find the corresponding answers div
     const answersDiv = questionDiv.nextElementSibling;
 
-    // Close all other answers
+    // Toggle 'arrow-rotate' class for the clicked arrow icon
+    arrowIcons.forEach((icon) => {
+      if (icon === arrowIcon) {
+        icon.classList.toggle('arrow-rotate');
+      } else {
+        icon.classList.remove('arrow-rotate');
+      }
+    });
+
     const allAnswerDivs = document.querySelectorAll('.answers');
     allAnswerDivs.forEach((otherAnswersDiv) => {
       if (otherAnswersDiv !== answersDiv) {
@@ -201,11 +205,12 @@ arrowIcons.forEach((arrowIcon) => {
       }
     });
 
-    // Toggle classes between hide-answer and show-answer for the clicked answer
     answersDiv.classList.toggle("hide-answer");
     answersDiv.classList.toggle("show-answer");
   });
 });
+
+
 
 
 
