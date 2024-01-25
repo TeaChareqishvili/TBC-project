@@ -1,0 +1,254 @@
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+   
+}
+
+body{
+    width:100%;
+}
+
+/* Header styles */ 
+
+#tbc-header{
+    width:100%;
+    background-color: #1a1e1f;
+    padding:20px 0;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    transition: background-color 0.5s ease-in-out;
+}
+#tbc-header.scrolled {
+    background-color: #2b2b2b;
+    opacity:0.9;
+    transition: background-color 0.5s ease-in-out; 
+}
+
+.header-container{
+    width:67%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.tbc-logo img{
+   height:40px;
+   cursor: pointer;
+}
+.tbc-logo p{
+    color:#f4f4f4;
+    font-size:14px;
+    padding:0 15px;
+}
+
+.header-nav-bar, ul, li {
+    display: flex;
+    align-items: center;
+}
+.header-nav-bar a{
+    color:#f4f4f4;
+    font-size:14px;
+    padding:0 15px;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+
+.header-nav-bar ul li:nth-child(3) a {
+    color: #0e8cbf;
+}
+
+.header-nav-bar a:hover{
+    color:#0e8cbf;
+    transition: color 0.4s ease-in-out;
+}
+
+.burger-menu{
+    width:32px;
+    height:28px;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+}
+
+.left-line{
+    align-self:flex-start;
+    width:50%;
+    height:3px;
+    background-color: #dbdbdb;
+    border-radius: 1.5px;
+}
+.middle-line{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width:100%;
+    height:3px;
+    background-color: #dbdbdb;
+    border-radius: 1.5px;
+}
+
+.right-line{
+    width:50%;
+    height:3px;
+    background-color: #dbdbdb;
+    border-radius: 1.5px;
+    align-self:flex-end;
+}
+
+
+
+
+
+/* Footer style */
+
+#tbc-footer{
+    width:100%;
+    background-color: #1a1e1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:35px 0 30px;
+}
+
+.footer-container{
+    width:67%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "footer-logo tbc-contact"
+        "rights-and-rules tbc-contact";
+}
+
+.footer-logo{
+    grid-area: footer-logo;
+}
+.footer-logo img{
+    max-width:106px;
+    width:100%;
+    margin-bottom:25px;
+}
+.rights-and-rules{
+    grid-area: rights-and-rules;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.rights{
+    font-size:14px;
+    color: #f4f4f4;
+    margin-bottom:25px;
+}
+
+.rules{
+    font-size:14px;
+    color:#FFFFFF;
+    margin-bottom:10px;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+.rules:hover{
+    color:#4a4d4d;
+    transition: color 0.4s ease-in-out;
+}
+
+.tbc-contact{
+    grid-area: tbc-contact;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.soc-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.soc-icons a{
+    display: inline-block;
+}
+.soc-icons img{
+    width:39px;
+    height:39px;
+    margin:0 5px 30px 7px;
+    cursor: pointer;
+}
+.contact-btn{
+    max-width:162px;
+    width:100%;
+    background-color: #00AEF3;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    color:#FFFFFF;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.contact-btn:hover{
+    background-color: #d5d5d5;
+    color:#353131;
+}
+
+
+
+/* Media query for header */
+
+@media(max-width:1024px){
+    .header-nav-bar{
+        display: none;
+    }
+
+    .burger-menu{
+       display: flex;
+       opacity:1;
+       transition: 0.5s ease-in-out;
+    }
+}
+
+@media(max-width:768px){
+    
+   
+    .footer-container{
+        width:67%;
+        margin:auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "footer-logo "
+           " tbc-contact"
+            "rights-and-rules";
+    }
+     
+    .tbc-contact{
+        display: flex;
+        flex-direction:row-reverse;
+        align-items:center;
+        justify-content:flex-end;
+        margin-bottom:25px;
+    }
+    .soc-icons img{
+        width:39px;
+        height:39px;
+        margin:0 5px 0 10px;
+        cursor: pointer;
+    }
+    .contact-btn{
+        margin-right:20px;
+    }
+ 
+}
