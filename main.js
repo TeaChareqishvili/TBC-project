@@ -1,6 +1,8 @@
 
 // header scroll effect
 
+
+
 window.addEventListener("scroll", function () {
   let header = document.getElementById("tbc-header");
 

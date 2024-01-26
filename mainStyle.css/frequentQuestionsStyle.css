@@ -96,3 +96,37 @@
     background-color: #353131;
     margin:10px 0;
 }
+
+.all-questions{
+    display: none;
+}
+
+
+/* media query for Frequent questions section */
+
+@media (max-width:768px){
+
+    .main-container{
+        width:80%;
+    }
+
+    .question-title span{
+        display: none;
+    }
+
+    .question-title{
+        justify-content: flex-start;
+    }
+
+    .all-questions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .all-questions span{
+        font-size:22px;
+        color:#00AEF3;
+        cursor: pointer;
+        margin-top:35px;
+    }
+}

@@ -12,6 +12,7 @@
     background-image: url("../images/stuff-img.webp");
     background-size:cover;
     background-repeat: no-repeat;
+    background-position: center;
     height: 380px;
 }
 
@@ -47,6 +48,7 @@
     line-height: 1.6em;
     width:67%;
     margin: 0 auto 40px;
+    font-weight: 400;
 }
 .read-more-link{
     width:67%;
@@ -57,11 +59,11 @@
 .read-more-link a{
     color:#0e8cbf;
     cursor: pointer;
-    transition: color 0.4s ease-in-out;
+    transition: color 0.4s ease;
     font-size:20px;
 }
 .read-more-link a:hover{
     color:#7e7e7e;
-    transition: color 0.4s ease-in-out;
+    transition: color 0.4s ease;
 }
 
