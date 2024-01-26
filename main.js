@@ -240,4 +240,23 @@ const secondImage = arrowContainer.querySelector('.slide-arrow:nth-child(2)');
 secondImage.style.transform = 'rotate(180deg)'
 
 
+// slider timer 
+const sliderContainer = document.querySelector('.slider-container');
+const partnerSlides = document.querySelectorAll('.slider');
+let currentSlideIndex = 0;
+
+function showSlide(index) {
+  partnerSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+    slide.classList.toggle('inactive', i !== index);
+  });
+}
+
+function changeSlide() {
+  currentSlideIndex = (currentSlideIndex + 1) % partnerSlides.length;
+  showSlide(currentSlideIndex);
+}
+
+showSlide(currentSlideIndex);
+setInterval(changeSlide, 4000);  
 

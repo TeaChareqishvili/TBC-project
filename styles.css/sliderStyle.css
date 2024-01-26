@@ -47,8 +47,8 @@
     justify-content: center;
 }
 .dot{
-    width:10px;
-    height:10px;
+    width:7px;
+    height:7px;
     border-radius: 50%;
     background-color: white;
     margin:0 5px;
@@ -63,18 +63,17 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-  
+    transition: opacity 1s ease;
 }
 
-.partner-slider-first{
+
+.active{
+    opacity: 1;
+}
+.inactive{
     opacity: 0;
 }
-.partner-slider-second{
-    opacity: 0;
-}
-.partner-slider-third{
- 
-}
+
 
 .slider img {
     max-width:246px;
