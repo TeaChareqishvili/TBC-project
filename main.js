@@ -217,6 +217,27 @@ arrowIcons.forEach((arrowIcon) => {
 
 
 
+// slider content - arrows
+
+const images = [
+  {
+    image: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 41'%3E%3Cpath d='M20.3 40.8 0 20.5 20.3.2l.7.7L1.3 20.5 21 40.1z' fill='%23E8E6E6'%3E%3C/path%3E%3C/svg%3E`
+  },
+  {
+    image: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 41'%3E%3Cpath d='M20.3 40.8 0 20.5 20.3.2l.7.7L1.3 20.5 21 40.1z'  fill='%23E8E6E6'%3E%3C/path%3E%3C/svg%3E`
+  }
+];
+
+const arrowContainer = document.querySelector('.arrow-container');
+
+images.map((img) => {
+  arrowContainer.innerHTML +=`
+      <img class="slide-arrow" src="${img.image}" alt="arrow"/>
+     
+  `;
+});
+const secondImage = arrowContainer.querySelector('.slide-arrow:nth-child(2)');
+secondImage.style.transform = 'rotate(180deg)'
 
 
-  
+
