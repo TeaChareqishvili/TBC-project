@@ -3,12 +3,12 @@
 
 #tbc-education{
     width:100%;
-    padding-top:83px;
+    padding-top:79px;
+    z-index: 0;
 }
 
 .banner-container{
     width:100%;
-    height:420px;
     background-image: url("../images/stuff-img.webp");
     background-size:cover;
     background-repeat: no-repeat;
@@ -23,14 +23,19 @@
     align-items: center;
     width:67%;
     margin:auto;
-
 }
 .banner-title h3{
-    font-size:42px;
+    font-size:34px;
     color:#f4f4f4;
     display: flex;
     flex-direction: column;
     line-height: 1.6em;
+    font-weight: 800;
+}
+
+.banner-title h3>span{
+    font-size:42px;
+    font-weight:800;
 }
 
 .banner-description{
@@ -57,13 +62,48 @@
     margin:auto;
 }
 .read-more-link a{
-    color:#0e8cbf;
+    color:#00AEF3;
     cursor: pointer;
     transition: color 0.4s ease;
     font-size:20px;
+    font-weight:400;
 }
 .read-more-link a:hover{
     color:#7e7e7e;
     transition: color 0.4s ease;
 }
 
+/* media query for education section */
+
+@media(max-width:1024px){
+    .banner-description p{       
+        width:75%;    
+    }
+
+    .read-more-link{
+        width:75%;    
+    }
+}
+
+@media(max-width:768px){
+    .banner-description p{
+        font-size: 16px;
+    }
+
+    .read-more-link a{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:385px){
+
+    .banner-title h3{
+        font-size:26px;
+        
+    }
+
+    .banner-title h3>span{
+        font-size:32px;
+        font-weight:800;
+    }
+}

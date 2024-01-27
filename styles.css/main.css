@@ -5,12 +5,14 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+  
    
 }
 
 body{
     width:100%;
     font-family: "tbc";
+  
 }
 
 @font-face {
@@ -23,11 +25,13 @@ body{
 #tbc-header{
     width:100%;
     background-color: #1a1e1f;
-    padding:19px 0;
+    padding:17px 0;
     display: flex;
+    align-items: center;
     justify-content: center;
     position:fixed;
     transition: background-color 0.5s ease-in-out;
+    z-index: 1;
 }
 #tbc-header.scrolled {
     background-color: #2b2b2b;
@@ -48,7 +52,7 @@ body{
 }
 
 
-.header-nav-bar, ul, li {
+.header-nav-bar, .nav-ul, .nav-li {
     display: flex;
     align-items: center;
 }
@@ -70,6 +74,13 @@ body{
     transition: color 0.4s ease-in-out;
 }
 
+/* header styles for mobile*/
+
+.header-hide{
+    opacity:0;
+    transition: opacity 0.3s ease-in-out;
+}
+
 .burger-menu{
     width:32px;
     height:28px;
@@ -88,6 +99,8 @@ body{
     height:3px;
     background-color: #dbdbdb;
     border-radius: 1.5px;
+    transform-origin: left;
+ 
 }
 .middle-line{
     display: flex;
@@ -97,6 +110,7 @@ body{
     height:3px;
     background-color: #dbdbdb;
     border-radius: 1.5px;
+ 
 }
 
 .right-line{
@@ -105,7 +119,135 @@ body{
     background-color: #dbdbdb;
     border-radius: 1.5px;
     align-self:flex-end;
+    transform-origin: right;   
 }
+.rotate-top-bottom{
+    animation: rotateAnimation 0.6s linear; 
+}
+.rotate-middle{
+    animation: rotateMiddle 0.6s linear;
+}
+
+.mobile-navigation-menu{
+    width:50%;
+    background-color: #222222;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:2;
+    height:100vh;
+    overflow-y:hidden;
+    display: flex;
+    flex-direction: column;  
+    animation: slideIn 1s ease; 
+}
+
+.hide{
+    display: none;
+}
+
+.mobile-header-nav-bar,.mobile-nav-ul, .mobile-nav-li{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top:30px;
+}
+
+.mobile-header-nav-bar a{
+    color:#f4f4f4;
+    font-size:26px;
+    margin:30px 25px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: color 0.4s ease-in-out;
+}
+
+.mobile-header-nav-bar a:hover{
+    color: #0e8cbf;
+}
+.mobile-header-nav-bar ul li:nth-child(3) a {
+    color: #0e8cbf;
+}
+
+.close{
+    width:32px;
+    height:28px;  
+    cursor: pointer; 
+}
+
+
+.line-top{
+    top:60px;
+    right:50px;
+    position: absolute;
+    height: 5px;
+    background: white;
+    width: 30px;
+    transform: rotate(45deg);
+  }
+  .line-bottom{ 
+    top:60px;
+    right:50px;  
+    position: absolute;
+    height: 5px;
+    background:white;
+    width: 30px;
+    transform: rotate(-45deg);   
+  }
+
+  @keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    15% {
+        transform: translateX(75%);
+    }
+    30% {
+        transform: translateX(50%);
+    }
+    45% {
+        transform: translateX(35%);
+    }
+    60% {
+        transform: translateX(20%);
+    }
+    75% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+  
+  @keyframes rotateAnimation {
+    0% {
+        transform: rotate(0deg);
+        width:50%;
+    }
+    100% {
+        transform: rotate(35deg);
+        width:70%;
+    }
+}
+
+
+@keyframes rotateMiddle {
+    0% {
+        transform: rotate(0deg);
+       
+    }
+    100% {
+        transform: rotate(-35deg);
+       
+    }
+}
+
+
+
+
 
 
 
@@ -120,6 +262,7 @@ body{
     align-items: center;
     justify-content: center;
     padding:35px 0 30px;
+   
 }
 
 .footer-container{
@@ -190,20 +333,26 @@ body{
     cursor: pointer;
 }
 .contact-btn{
+    font-size:16px;
+    font-family: "tbc";
+    line-height: 25.6px;
+    font-weight: 400;
     max-width:162px;
     width:100%;
     background-color: #00AEF3;
     border:none;
-    padding:10px 20px;
+    padding:8px 22px;
     border-radius:5px;
     color:#FFFFFF;
     cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
 .contact-btn:hover{
     background-color: #d5d5d5;
     color:#353131;
+   
 }
 
 
@@ -222,13 +371,20 @@ body{
     }
 }
 
-/* media query foor footere */
+@media(max-width:429px){
+    .mobile-header-nav-bar a{     
+        font-size:18px;
+        margin:30px 25px;
+    }
+}
+
+/* media query for footer */
 
 @media(max-width:768px){
     
    
     .footer-container{
-        width:45%;
+        width:50%;
         margin:auto;
         display: grid;
         grid-template-columns: 1fr;
@@ -256,4 +412,10 @@ body{
         margin-right:20px;
     }
  
+}
+
+@media(max-width:385px){
+    .footer-container{
+        width:auto;
+    }
 }

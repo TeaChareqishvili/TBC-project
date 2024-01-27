@@ -1,17 +1,82 @@
 
 // header scroll effect
 
-
+let prevScrollPos = window.scrollY;
 
 window.addEventListener("scroll", function () {
   let header = document.getElementById("tbc-header");
+  let currentScrollPos = window.scrollY;
 
-  if (window.scrollY > 0) {
+  if ( this.window.innerWidth >1024 && window.scrollY > 0) {
     header.classList.add("scrolled");
+   
   } else {
     header.classList.remove("scrolled");
   }
+  if (window.innerWidth <= 1024 ) {
+  
+    if (currentScrollPos > prevScrollPos) {
+      // Scrolling down 
+      header.classList.add("header-hide");
+     
+       
+    } 
+    else {
+      // Scrolling up
+      header.classList.remove("header-hide");
+       header.classList.add('scrolled')
+     
+    }
+
+    prevScrollPos = currentScrollPos;
+  }
+  if(currentScrollPos==0){
+    header.classList.remove("scrolled")
+  }
 });
+
+// header burger menu animation 
+
+const burgerMenu = document.querySelector(".burger-menu");
+const leftLine = document.querySelector('.left-line');
+const rightLine = document.querySelector('.right-line');
+const middleLine = document.querySelector('.middle-line');
+const mobileNavigationMenu = document.querySelector('.mobile-navigation-menu');
+const close = document.querySelector('.close')
+
+burgerMenu.addEventListener("click", function() {
+  // Toggle rotate-top-bottom class on left and right lines
+  toggleAnimationClass(".left-line", "rotate-top-bottom");
+  toggleAnimationClass(".right-line", "rotate-top-bottom");
+
+  // Toggle rotate-middle class on the middle line
+  toggleAnimationClass(".middle-line", "rotate-middle");
+
+  // Toggle hide class on mobile navigation menu
+  mobileNavigationMenu.classList.toggle("hide");
+  
+
+  // Toggle overflow: hidden; on body
+  document.body.style.overflow = document.body.style.overflow === "hidden" ? "auto" : "hidden";
+});
+close.addEventListener("click", function() {
+  // Reset everything to initial state
+  leftLine.classList.remove("rotate-top-bottom");
+  rightLine.classList.remove("rotate-top-bottom");
+  middleLine.classList.remove("rotate-middle");
+  mobileNavigationMenu.classList.add("hide");
+  document.body.style.overflow = "auto";
+});
+
+
+function toggleAnimationClass(selector, className) {
+  const element = document.querySelector(selector);
+  element.classList.toggle(className);
+}
+
+
+
+
 
  // Section - training courses data
 
@@ -94,14 +159,16 @@ courses.map((course) => {
             <div class="training-image">
                 <img src="${course.image}" alt="${course.title}">
             </div>
-            <div class="training-course-registration">
-                <p class="training-title">${course.title}</p>
-                <p class="training-registration">${course.registration}</p>
-            </div>
-            <div class="training-course-details">
-              <span>${course.svg}</span>
-              <span class="course-details">${course.details}</span>
-            </div>    
+            <div class="training-course-info">
+              <div class="training-course-registration">
+                 <p class="training-title">${course.title}</p>
+                 <p class="training-registration">${course.registration}</p>
+              </div>
+              <div class="training-course-details">
+                <span>${course.svg}</span>
+                <span class="course-details">${course.details}</span>
+              </div>   
+            </div> 
         </div>
    
     `;
@@ -185,15 +252,17 @@ question.map((info) => {
 //  Section - Frequent questions - function for showing and hiding  the answers and rotate the arrows
 
 const arrowIcons = document.querySelectorAll('.arrow');
+const questionDivs = document.querySelectorAll('.question')
 
-arrowIcons.forEach((arrowIcon) => {
-  arrowIcon.addEventListener('click', () => {
-    const questionDiv = arrowIcon.closest('.question');
+questionDivs.forEach((question) => {
+  question.addEventListener('click', () => {
+     const questionDiv = question.closest('.question');
     const answersDiv = questionDiv.nextElementSibling;
 
    
     arrowIcons.forEach((icon) => {
-      if (icon === arrowIcon) {
+      const arrow = questionDiv.querySelector('.arrow');
+      if (icon === arrow) {
         icon.classList.toggle('arrow-rotate');
       } else {
         icon.classList.remove('arrow-rotate');
@@ -321,8 +390,25 @@ dots.forEach((dot, index) => {
   });
 });
 
+function handleInterval() {
+  if (window.innerWidth <= 768) {
+    clearInterval(slideIntervalId);
+  } else {
+    // Clear the interval if it's running
+    clearInterval(slideIntervalId);
+    // Start the interval only if it's not already running
+    slideIntervalId = setInterval(changeSlide, 4000);
+  }
+}
+
+
+window.addEventListener('resize', handleInterval);
+
+handleInterval();
 
 showSlide(currentSlideIndex);
 updateDots(currentSlideIndex);
 slideIntervalId = setInterval(changeSlide, 4000);
+
+// event listener to clear interval for mobile version
 
