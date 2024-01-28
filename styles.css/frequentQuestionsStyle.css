@@ -43,14 +43,12 @@
   opacity:0;
   overflow: hidden;
   height:0;
-  transition: opacity 0.7s ease-out, height 0.7s ease-out;
-    
 }
 
 .show-answer {
     opacity: 1;
     height: auto;
-    transition: opacity 0.5s ease-out, height 0.5s ease-out;
+    transition: all 1.5s ease-out;
   }
 
   .arrow-rotate{
@@ -130,6 +128,9 @@
 
     .question-title{
         justify-content: flex-start;
+    }
+    .question{
+        font-size:16px;
     }
 
     .all-questions {
