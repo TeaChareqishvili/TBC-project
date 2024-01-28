@@ -1,7 +1,7 @@
 # TBC-project
 
 
-<!-- 
+
     project structure
 
     //fonts - consists of font files for web
@@ -28,4 +28,3 @@
         or
 
         open live link on github page
- -->
