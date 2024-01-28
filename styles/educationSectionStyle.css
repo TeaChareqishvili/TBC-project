@@ -79,9 +79,11 @@
     .banner-description p{       
         width:75%;    
     }
-
     .read-more-link{
         width:75%;    
+    }
+    .banner-title {
+        width: 75%;
     }
 }
 

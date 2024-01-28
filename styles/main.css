@@ -372,7 +372,8 @@ body{
 @media(max-width:768px){
 
     .footer-container{
-        width:50%;
+        width:90%;
+        padding: 30px;
         margin:auto;
         display: grid;
         grid-template-columns: 1fr;
