@@ -148,7 +148,7 @@ body{
     overflow-y:hidden;
     display: flex;
     flex-direction: column;  
-    animation: slideIn 1s ease; 
+    animation: slideIn 500ms ease; 
     z-index: 1;
 }
 
