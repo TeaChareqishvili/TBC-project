@@ -1,8 +1,9 @@
 # TBC-project
 
+## Overview
+This project was developed as a task for the TBC x USAID Bootcamp. The focus of this project was to create the first landing page of a website using HTML, CSS, and JavaScript. The landing page is designed to be fully responsive, ensuring a consistent user experience across different devices.
 
-
-    project structure
+    ### project structure
 
     //fonts - consists of font files for web
     //images - all assets that is used in web (courseImages, logos, slideImages)
